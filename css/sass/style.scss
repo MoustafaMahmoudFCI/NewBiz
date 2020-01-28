@@ -1,45 +1,51 @@
 $mainColor: #00366f;
 $secondColor: #017bff;
+$grayColor: #6c757d;
 $white : #fff;
-#header{
-    .navbar{
-        .navbar-brand{
-            img{
+
+#header {
+    .navbar {
+        .navbar-brand {
+            img {
                 width: 150px;
             }
         }
-        .nav-link{
+        .nav-link {
             color: $mainColor;
             font-size: 18px;
             margin-left: 10px;
             text-transform: capitalize;
-            &:hover{
+
+            &:hover {
                 color: $secondColor;
             }
         }
-        .active{
+
+        .active {
             color: $secondColor;
         }
     }
 }
 
 /* intro section */
-#intro{
+#intro {
     margin-top: 60px;
     background: url(../img/intro-bg.png) center bottom no-repeat;
     background-size: cover;
     padding: 140px 0;
-    h1{
+    h1 {
         font-weight: bold;
         color: $white;
         font-size: 50px;
         margin-bottom: 35px;
-        span{
+
+        span {
             color: #74b5fc;
             text-decoration: underline;
         }
     }
-    a{
+
+    a {
         border: 2px solid #fff;
         border-radius: 20px;
         padding: 5px 20px;
@@ -49,17 +55,21 @@ $white : #fff;
         text-transform: capitalize;
         font-weight: 600;
         transition: .4s ease-in-out;
-        &:first-of-type{
+
+        &:first-of-type {
             background-color: $secondColor;
             border: 2px solid $secondColor;
-            &:hover{
+
+            &:hover {
                 background-color: transparent;
                 border: 2px solid $white;
             }
         }
-        &:last-of-type{
+
+        &:last-of-type {
             margin-left: 30px;
-            &:hover{
+
+            &:hover {
                 background-color: $secondColor;
                 border: 2px solid $secondColor;
             }
@@ -68,18 +78,33 @@ $white : #fff;
 }
 
 /* about us section */
-#about-us{
+#about-us {
     padding: 50px 0;
-    .about{
+
+    h2 {
+        color: $secondColor;
+    }
+
+    .about {
         width: 80%;
         font-size: 20px;
+        color: $grayColor;
     }
-    .media{
-        margin-bottom: 20px;
-        h5{
+    .text{
+        color: $grayColor;
+    }
+    .media {
+        margin-bottom: 10px;
+
+        h5 {
             color: $mainColor;
         }
-        span{
+
+        p {
+            color: $grayColor;
+        }
+
+        span {
             width: 64px;
             height: 64px;
             border: 2px solid $secondColor;
@@ -89,13 +114,114 @@ $white : #fff;
             align-items: center;
             color: $secondColor;
             transition: all .4s ease-in-out;
-            .svg-inline--fa{
+
+            .svg-inline--fa {
                 padding: 7px;
             }
-            &:hover{
+        }
+
+        &:hover {
+            span {
                 background-color: $secondColor;
                 color: $white;
             }
+        }
+    }
+}
+
+/* services section */
+#services {
+    padding: 50px 0;
+    background-color: #ecf5ff;
+    box-shadow: inset 0 0 10px rgba($color: #000000, $alpha: 0.1);
+
+    h2 {
+        color: $secondColor;
+    }
+
+    .desc {
+        padding: 20px 0 30px;
+        width: 80%;
+        margin: 0 auto;
+        font-size: 20px;
+        color: $grayColor;
+    }
+
+    .media {
+        box-shadow:
+            0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+            0 12.5px 10px rgba(0, 0, 0, 0.06),
+            0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+            0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+            0 100px 80px rgba(0, 0, 0, 0.12);
+        position: relative;
+        background-color: $white;
+        padding: 10px;
+        margin: 0 10px 20px 10px;
+        overflow: hidden;
+        border-radius: 10px;
+
+        .media-body {
+            padding: 10px 50px;
+        }
+
+        span {
+            position: absolute;
+            top: calc(50% - 24px);
+            left: -5px;
+        }
+    }
+}
+
+/* choose us section */
+#choose-us{
+    padding : 50px 0;
+    color: $white;
+    background-color: $mainColor;
+    h2{
+        text-transform: capitalize;
+        margin-bottom: 20px;
+    }
+    .desc{
+        margin: 0 auto 40px;
+        width: 80%;
+        font-size: 18px;
+        color: #cecece;
+        line-height: 1.6em;
+    }
+    .card{
+        box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
+        background-color: #00458f;
+        .card-body{
+            .svg-inline--fa{
+                color: #bfddfe;
+            }
+            p{
+                color : #d8eafe;
+                line-height: 1.5em;
+            }
+            .card-link{
+                color: $white;
+                font-weight: 600;
+                transition: all .4s ease-in-out;
+                border-bottom: 2px solid #00458f;
+                &:hover{
+                    border-bottom-color: $white;
+                }
+            }
+        }
+    }
+    .stats{
+        span{
+            font-size: 50px;
+            font-weight: 800;
         }
     }
 }
