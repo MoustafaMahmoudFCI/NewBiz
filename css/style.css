@@ -1,0 +1,94 @@
+#header .navbar .navbar-brand img {
+  width: 150px;
+}
+#header .navbar .nav-link {
+  color: #00366f;
+  font-size: 18px;
+  margin-left: 10px;
+  text-transform: capitalize;
+}
+#header .navbar .nav-link:hover {
+  color: #017bff;
+}
+#header .navbar .active {
+  color: #017bff;
+}
+
+/* intro section */
+#intro {
+  margin-top: 60px;
+  background: url(../img/intro-bg.png) center bottom no-repeat;
+  background-size: cover;
+  padding: 140px 0;
+}
+#intro h1 {
+  font-weight: bold;
+  color: #fff;
+  font-size: 50px;
+  margin-bottom: 35px;
+}
+#intro h1 span {
+  color: #74b5fc;
+  text-decoration: underline;
+}
+#intro a {
+  border: 2px solid #fff;
+  border-radius: 20px;
+  padding: 5px 20px;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-weight: 600;
+  transition: 0.4s ease-in-out;
+}
+#intro a:first-of-type {
+  background-color: #017bff;
+  border: 2px solid #017bff;
+}
+#intro a:first-of-type:hover {
+  background-color: transparent;
+  border: 2px solid #fff;
+}
+#intro a:last-of-type {
+  margin-left: 30px;
+}
+#intro a:last-of-type:hover {
+  background-color: #017bff;
+  border: 2px solid #017bff;
+}
+
+/* about us section */
+#about-us {
+  padding: 50px 0;
+}
+#about-us .about {
+  width: 80%;
+  font-size: 20px;
+}
+#about-us .media {
+  margin-bottom: 20px;
+}
+#about-us .media h5 {
+  color: #00366f;
+}
+#about-us .media span {
+  width: 64px;
+  height: 64px;
+  border: 2px solid #017bff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #017bff;
+  transition: all 0.4s ease-in-out;
+}
+#about-us .media span .svg-inline--fa {
+  padding: 7px;
+}
+#about-us .media span:hover {
+  background-color: #017bff;
+  color: #fff;
+}
+
+/*# sourceMappingURL=style.css.map */

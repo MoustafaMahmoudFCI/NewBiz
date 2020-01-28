@@ -1,0 +1,101 @@
+$mainColor: #00366f;
+$secondColor: #017bff;
+$white : #fff;
+#header{
+    .navbar{
+        .navbar-brand{
+            img{
+                width: 150px;
+            }
+        }
+        .nav-link{
+            color: $mainColor;
+            font-size: 18px;
+            margin-left: 10px;
+            text-transform: capitalize;
+            &:hover{
+                color: $secondColor;
+            }
+        }
+        .active{
+            color: $secondColor;
+        }
+    }
+}
+
+/* intro section */
+#intro{
+    margin-top: 60px;
+    background: url(../img/intro-bg.png) center bottom no-repeat;
+    background-size: cover;
+    padding: 140px 0;
+    h1{
+        font-weight: bold;
+        color: $white;
+        font-size: 50px;
+        margin-bottom: 35px;
+        span{
+            color: #74b5fc;
+            text-decoration: underline;
+        }
+    }
+    a{
+        border: 2px solid #fff;
+        border-radius: 20px;
+        padding: 5px 20px;
+        color: #fff;
+        font-size: 18px;
+        text-decoration: none;
+        text-transform: capitalize;
+        font-weight: 600;
+        transition: .4s ease-in-out;
+        &:first-of-type{
+            background-color: $secondColor;
+            border: 2px solid $secondColor;
+            &:hover{
+                background-color: transparent;
+                border: 2px solid $white;
+            }
+        }
+        &:last-of-type{
+            margin-left: 30px;
+            &:hover{
+                background-color: $secondColor;
+                border: 2px solid $secondColor;
+            }
+        }
+    }
+}
+
+/* about us section */
+#about-us{
+    padding: 50px 0;
+    .about{
+        width: 80%;
+        font-size: 20px;
+    }
+    .media{
+        margin-bottom: 20px;
+        h5{
+            color: $mainColor;
+        }
+        span{
+            width: 64px;
+            height: 64px;
+            border: 2px solid $secondColor;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $secondColor;
+            transition: all .4s ease-in-out;
+            .svg-inline--fa{
+                padding: 7px;
+            }
+            &:hover{
+                background-color: $secondColor;
+                color: $white;
+            }
+        }
+    }
+}
