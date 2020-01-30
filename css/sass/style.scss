@@ -1,7 +1,28 @@
 $mainColor: #00366f;
 $secondColor: #017bff;
 $grayColor: #6c757d;
+$lightColor : #ecf5ff;
+$headingColor: #283d50;
 $white : #fff;
+$browserPrefixer : webkit moz o;
+
+@mixin prefixer($property, $value, $Prefixes : ()) {
+    @each $prefix in prefixes {
+        #{'-'+$prefix+'-'+$property}: $value;
+    }
+
+    #{$property} : $value;
+}
+
+%flexbox {
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+%heading {
+    color: $headingColor;
+}
 
 #header {
     .navbar {
@@ -10,6 +31,7 @@ $white : #fff;
                 width: 150px;
             }
         }
+
         .nav-link {
             color: $mainColor;
             font-size: 18px;
@@ -33,6 +55,7 @@ $white : #fff;
     background: url(../img/intro-bg.png) center bottom no-repeat;
     background-size: cover;
     padding: 140px 0;
+
     h1 {
         font-weight: bold;
         color: $white;
@@ -82,7 +105,7 @@ $white : #fff;
     padding: 50px 0;
 
     h2 {
-        color: $secondColor;
+        @extend %heading;
     }
 
     .about {
@@ -90,9 +113,11 @@ $white : #fff;
         font-size: 20px;
         color: $grayColor;
     }
-    .text{
+
+    .text {
         color: $grayColor;
     }
+
     .media {
         margin-bottom: 10px;
 
@@ -109,11 +134,11 @@ $white : #fff;
             height: 64px;
             border: 2px solid $secondColor;
             border-radius: 50%;
-            display: flex;
+            @extend %flexbox;
             justify-content: center;
             align-items: center;
             color: $secondColor;
-            transition: all .4s ease-in-out;
+            @include prefixer(transition, all .4s ease-in-out , $browserPrefixer );
 
             .svg-inline--fa {
                 padding: 7px;
@@ -132,11 +157,11 @@ $white : #fff;
 /* services section */
 #services {
     padding: 50px 0;
-    background-color: #ecf5ff;
+    background-color: $lightColor;
     box-shadow: inset 0 0 10px rgba($color: #000000, $alpha: 0.1);
 
     h2 {
-        color: $secondColor;
+        @extend %heading;
     }
 
     .desc {
@@ -175,53 +200,206 @@ $white : #fff;
 }
 
 /* choose us section */
-#choose-us{
-    padding : 50px 0;
+#choose-us {
+    padding: 50px 0;
     color: $white;
     background-color: $mainColor;
-    h2{
+
+    h2 {
         text-transform: capitalize;
         margin-bottom: 20px;
     }
-    .desc{
+
+    .desc {
         margin: 0 auto 40px;
         width: 80%;
         font-size: 18px;
         color: #cecece;
         line-height: 1.6em;
     }
-    .card{
+
+    .card {
         box-shadow:
-        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-        0 12.5px 10px rgba(0, 0, 0, 0.06),
-        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-        0 100px 80px rgba(0, 0, 0, 0.12);
+            0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+            0 12.5px 10px rgba(0, 0, 0, 0.06),
+            0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+            0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+            0 100px 80px rgba(0, 0, 0, 0.12);
         background-color: #00458f;
-        .card-body{
-            .svg-inline--fa{
+
+        .card-body {
+            .svg-inline--fa {
                 color: #bfddfe;
             }
-            p{
-                color : #d8eafe;
+
+            p {
+                color: #d8eafe;
                 line-height: 1.5em;
             }
-            .card-link{
+
+            .card-link {
                 color: $white;
                 font-weight: 600;
                 transition: all .4s ease-in-out;
                 border-bottom: 2px solid #00458f;
-                &:hover{
+
+                &:hover {
                     border-bottom-color: $white;
                 }
             }
         }
     }
-    .stats{
-        span{
+
+    .stats {
+        span {
             font-size: 50px;
-            font-weight: 800;
+            font-weight: 600;
+        }
+    }
+}
+
+/* start portfolio section*/
+#portfolio {
+    padding: 50px 0;
+
+    h2 {
+        @extend %heading;
+        margin-bottom: 30px;
+    }
+
+    ul {
+        li {
+            flex-direction: row;
+            padding: 5px 30px;
+            margin-right: 20px;
+            background-color: $lightColor;
+            transition: all .5s ease-in-out;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+
+            &:hover {
+                background-color: $secondColor;
+                cursor: pointer;
+                color: $white;
+            }
+
+            &.active {
+                background-color: $secondColor;
+                cursor: pointer;
+                color: $white;
+            }
+        }
+    }
+
+    .portfolio {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+        -webkit-column-width: calc(100% / 3);
+        -moz-column-width: calc(100% / 3);
+        column-width: calc(100% / 3);
+
+        .portfolio-item {
+            .portfolio-wrapper {
+                position: relative;
+                transition: .4s ease-in-out;
+
+                img {
+                    width: 100%;
+                    transition: all .4s ease-in-out;
+                }
+
+                .portfolio-info {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    color: $white;
+                    opacity: 0;
+                    transition: all .4s ease-in-out;
+
+                    h4 {
+                        a {
+                            color: $white;
+                            text-decoration: none;
+                        }
+                    }
+
+                    p {
+                        text-transform: uppercase;
+                    }
+
+                    .portfolio-links {
+                        a {
+                            background-color: $secondColor;
+                            padding: 5px 7px;
+                            display: inline-block;
+                            color: $white;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                .portfolio-wrapper {
+                    img {
+                        opacity: .4;
+                    }
+
+                    background-color: $mainColor;
+                }
+
+                .portfolio-info {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+#testimonials{
+    padding: 50px ;
+    background-color: $lightColor;
+    box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+    h2{
+        color: $headingColor;
+        margin-bottom: 50px;
+        text-transform: capitalize;
+        letter-spacing: 2px;
+    }
+    .carousel-indicators {
+        li{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: $grayColor;
+            &:hover{
+                background-color: $secondColor;
+            }
+        }
+        .active{
+            background-color: $secondColor !important;
+        }
+    }
+    .carousel-inner{
+        .media{
+            img{
+                width:120px;
+            }
+            .media-body{
+                p{
+                    font-style: italic;
+                    line-height: 1.5em;
+                    margin-bottom: 70px;
+                }
+            }
         }
     }
 }
