@@ -5,7 +5,14 @@ $lightColor : #ecf5ff;
 $headingColor: #283d50;
 $white : #fff;
 $browserPrefixer : webkit moz o;
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Courgette|Merienda&display=swap');
 
+body {
+    font-family: merienda, sans-serif;
+}
+
+// mix in to include
 @mixin prefixer($property, $value, $Prefixes : ()) {
     @each $prefix in prefixes {
         #{'-'+$prefix+'-'+$property}: $value;
@@ -14,14 +21,65 @@ $browserPrefixer : webkit moz o;
     #{$property} : $value;
 }
 
+// classes to extend
+%transiton {
+    @include prefixer(transition, all .4s ease-in-out, $browserPrefixer);
+}
+
+%absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
 %flexbox {
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
 }
+
 %heading {
     color: $headingColor;
+    font-size: 2em;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+%sectionDesc {
+    font-family: 'Merienda', cursive;
+    font-style: italic;
+    margin: 0 auto 40px;
+    width: 85%;
+    font-size: 1.2em;
+    color: $grayColor;
+    line-height: 1.6em;
+}
+
+%padding {
+    padding: 50px 0;
+}
+
+%customSection {
+    background-color: $lightColor;
+    box-shadow: inset 0 0 10px rgba($color: #000000, $alpha: 0.1);
+    overflow: hidden;
+}
+
+%customParagraph {
+  
+}
+
+%box-shadow {
+    box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 #header {
@@ -70,14 +128,13 @@ $browserPrefixer : webkit moz o;
 
     a {
         border: 2px solid #fff;
-        border-radius: 20px;
         padding: 5px 20px;
         color: #fff;
         font-size: 18px;
         text-decoration: none;
         text-transform: capitalize;
         font-weight: 600;
-        transition: .4s ease-in-out;
+        @extend %transiton;
 
         &:first-of-type {
             background-color: $secondColor;
@@ -102,16 +159,14 @@ $browserPrefixer : webkit moz o;
 
 /* about us section */
 #about-us {
-    padding: 50px 0;
+    @extend %padding;
 
     h2 {
         @extend %heading;
     }
 
     .about {
-        width: 80%;
-        font-size: 20px;
-        color: $grayColor;
+        @extend %sectionDesc;
     }
 
     .text {
@@ -138,7 +193,7 @@ $browserPrefixer : webkit moz o;
             justify-content: center;
             align-items: center;
             color: $secondColor;
-            @include prefixer(transition, all .4s ease-in-out , $browserPrefixer );
+            @extend %transiton;
 
             .svg-inline--fa {
                 padding: 7px;
@@ -156,37 +211,40 @@ $browserPrefixer : webkit moz o;
 
 /* services section */
 #services {
-    padding: 50px 0;
-    background-color: $lightColor;
-    box-shadow: inset 0 0 10px rgba($color: #000000, $alpha: 0.1);
+    @extend %padding;
+    @extend %customSection;
 
     h2 {
         @extend %heading;
     }
 
     .desc {
-        padding: 20px 0 30px;
-        width: 80%;
-        margin: 0 auto;
-        font-size: 20px;
-        color: $grayColor;
+        @extend %sectionDesc;
     }
 
-    .media {
-        box-shadow:
-            0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-            0 12.5px 10px rgba(0, 0, 0, 0.06),
-            0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-            0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-            0 100px 80px rgba(0, 0, 0, 0.12);
+    .box {
+        @extend %box-shadow;
         position: relative;
         background-color: $white;
         padding: 10px;
         margin: 0 10px 20px 10px;
         overflow: hidden;
         border-radius: 10px;
-
+        @extend %transiton;
+        a{
+            color : #000;
+            text-decoration: none;
+        }
+        &:hover{
+            transform: translateY(-7px);
+            a{
+                color : $secondColor;
+                cursor: pointer;
+            }
+            .svg-inline--fa{
+                color:$secondColor;
+            }
+        }
         .media-body {
             padding: 10px 50px;
         }
@@ -201,7 +259,7 @@ $browserPrefixer : webkit moz o;
 
 /* choose us section */
 #choose-us {
-    padding: 50px 0;
+    @extend %padding;
     color: $white;
     background-color: $mainColor;
 
@@ -211,23 +269,16 @@ $browserPrefixer : webkit moz o;
     }
 
     .desc {
-        margin: 0 auto 40px;
-        width: 80%;
-        font-size: 18px;
-        color: #cecece;
-        line-height: 1.6em;
+        @extend %sectionDesc;
+        color: #dddede;
     }
 
     .card {
-        box-shadow:
-            0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-            0 12.5px 10px rgba(0, 0, 0, 0.06),
-            0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-            0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-            0 100px 80px rgba(0, 0, 0, 0.12);
+        @extend %box-shadow;
         background-color: #00458f;
-
+        &:hover{
+            background: #003b7a;
+        }
         .card-body {
             .svg-inline--fa {
                 color: #bfddfe;
@@ -241,7 +292,7 @@ $browserPrefixer : webkit moz o;
             .card-link {
                 color: $white;
                 font-weight: 600;
-                transition: all .4s ease-in-out;
+                @extend %transiton;
                 border-bottom: 2px solid #00458f;
 
                 &:hover {
@@ -261,7 +312,7 @@ $browserPrefixer : webkit moz o;
 
 /* start portfolio section*/
 #portfolio {
-    padding: 50px 0;
+    @extend %padding;
 
     h2 {
         @extend %heading;
@@ -274,7 +325,7 @@ $browserPrefixer : webkit moz o;
             padding: 5px 30px;
             margin-right: 20px;
             background-color: $lightColor;
-            transition: all .5s ease-in-out;
+            @extend %transiton;
             margin-bottom: 10px;
             text-transform: uppercase;
 
@@ -293,36 +344,27 @@ $browserPrefixer : webkit moz o;
     }
 
     .portfolio {
-        -webkit-column-count: 3;
-        -moz-column-count: 3;
-        column-count: 3;
-        -webkit-column-width: calc(100% / 3);
-        -moz-column-width: calc(100% / 3);
-        column-width: calc(100% / 3);
+        @include prefixer(column-count, 3, $browserPrefixer);
+        @include prefixer(column-width, calc(100% / 3), $browserPrefixer);
 
         .portfolio-item {
             .portfolio-wrapper {
                 position: relative;
-                transition: .4s ease-in-out;
 
                 img {
                     width: 100%;
-                    transition: all .4s ease-in-out;
+                    @extend %transiton;
                 }
 
                 .portfolio-info {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    bottom: 0;
-                    right: 0;
-                    display: flex;
+                    @extend %absolute;
+                    @extend %flexbox;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
                     color: $white;
                     opacity: 0;
-                    transition: all .4s ease-in-out;
+                    @extend %transiton;
 
                     h4 {
                         a {
@@ -364,42 +406,183 @@ $browserPrefixer : webkit moz o;
     }
 }
 
-#testimonials{
-    padding: 50px ;
-    background-color: $lightColor;
-    box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
-    h2{
-        color: $headingColor;
+// start testimonials 
+#testimonials {
+    @extend %padding;
+    @extend %customSection;
+
+    h2 {
+        @extend %heading;
         margin-bottom: 50px;
-        text-transform: capitalize;
-        letter-spacing: 2px;
     }
+
     .carousel-indicators {
-        li{
+        li {
             width: 15px;
             height: 15px;
             border-radius: 50%;
             background-color: $grayColor;
-            &:hover{
+
+            &:hover {
                 background-color: $secondColor;
             }
         }
-        .active{
+
+        .active {
             background-color: $secondColor !important;
         }
     }
-    .carousel-inner{
-        .media{
-            img{
-                width:120px;
+
+    .carousel-inner {
+        .media {
+            img {
+                width: 120px;
             }
-            .media-body{
-                p{
+
+            .media-body {
+                p {
+                    font-family: 'Merienda', cursive;
                     font-style: italic;
-                    line-height: 1.5em;
+                    line-height: 1.6em;
+                    font-size: 18px;
                     margin-bottom: 70px;
                 }
             }
         }
     }
+}
+
+// start team
+#team {
+    @extend %padding;
+
+    h2 {
+        @extend %heading;
+    }
+
+    .desc {
+        @extend %sectionDesc;
+    }
+
+    .member-item {
+        position: relative;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 40px;
+
+        img {
+            @extend %transiton;
+        }
+
+        .member-info {
+            @extend %absolute;
+            @extend %flexbox;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: $white;
+            @extend %transiton;
+            opacity: 0;
+
+            p {
+                color: $lightColor;
+                font-style: italic;
+            }
+
+            .links {
+                a {
+                    color: $white;
+                    margin-right: 4px;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            img {
+                opacity: .4;
+            }
+
+            .member-info {
+                opacity: 1;
+                background-color: rgba($color: $mainColor, $alpha: .8)
+            }
+        }
+    }
+}
+
+/* start clients section */
+#clients {
+    @extend %customSection;
+    @extend %padding;
+
+    h2 {
+        @extend %heading;
+    }
+
+    p {
+        @extend %sectionDesc;
+    }
+
+    .client-logo {
+        @extend %flexbox;
+        padding: 64px;
+        background-color: $white;
+        height: 160px;
+        margin: 1px;
+
+        img {
+            @extend %transiton;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
+/* end clients section */
+
+// start contact us section
+#contact-us {
+    @extend %padding;
+
+    h2 {
+        @extend %heading;
+        margin-bottom: 30px;
+    }
+}
+
+// start footer
+#footer {
+    @extend %padding;
+    background-color: #004a99;
+    color: $white;
+
+    h4,
+    h5 {
+        text-transform: uppercase;
+    }
+
+    ul {
+        li {
+            margin-bottom: 5px;
+
+            a {
+                text-decoration: none;
+                color: $lightColor;
+            }
+        }
+    }
+
+}
+
+.copyright {
+    background-color: $mainColor;
+    color: $white;
 }

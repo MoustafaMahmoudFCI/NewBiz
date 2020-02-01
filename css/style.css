@@ -1,12 +1,58 @@
-#about-us .media span {
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Courgette|Merienda&display=swap");
+body {
+  font-family: merienda, sans-serif;
+}
+
+#clients .client-logo img, #team .member-item .member-info, #team .member-item img, #portfolio .portfolio .portfolio-item .portfolio-wrapper .portfolio-info, #portfolio .portfolio .portfolio-item .portfolio-wrapper img, #portfolio ul li, #choose-us .card .card-body .card-link, #services .box, #about-us .media span, #intro a {
+  -prefixes-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+#team .member-item .member-info, #portfolio .portfolio .portfolio-item .portfolio-wrapper .portfolio-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#clients .client-logo, #team .member-item .member-info, #portfolio .portfolio .portfolio-item .portfolio-wrapper .portfolio-info, #about-us .media span {
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
 }
 
-#portfolio h2, #services h2, #about-us h2 {
+#contact-us h2, #clients h2, #team h2, #testimonials h2, #portfolio h2, #services h2, #about-us h2 {
   color: #283d50;
+  font-size: 2em;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+#clients p, #team .desc, #choose-us .desc, #services .desc, #about-us .about {
+  font-family: "Merienda", cursive;
+  font-style: italic;
+  margin: 0 auto 40px;
+  width: 85%;
+  font-size: 1.2em;
+  color: #6c757d;
+  line-height: 1.6em;
+}
+
+#footer, #contact-us, #clients, #team, #testimonials, #portfolio, #choose-us, #services, #about-us {
+  padding: 50px 0;
+}
+
+#clients, #testimonials, #services {
+  background-color: #ecf5ff;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+#choose-us .card, #services .box {
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 #header .navbar .navbar-brand img {
@@ -44,14 +90,12 @@
 }
 #intro a {
   border: 2px solid #fff;
-  border-radius: 20px;
   padding: 5px 20px;
   color: #fff;
   font-size: 18px;
   text-decoration: none;
   text-transform: capitalize;
   font-weight: 600;
-  transition: 0.4s ease-in-out;
 }
 #intro a:first-of-type {
   background-color: #017bff;
@@ -70,14 +114,6 @@
 }
 
 /* about us section */
-#about-us {
-  padding: 50px 0;
-}
-#about-us .about {
-  width: 80%;
-  font-size: 20px;
-  color: #6c757d;
-}
 #about-us .text {
   color: #6c757d;
 }
@@ -98,8 +134,6 @@
   justify-content: center;
   align-items: center;
   color: #017bff;
-  -prefixes-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
 }
 #about-us .media span .svg-inline--fa {
   padding: 7px;
@@ -110,20 +144,7 @@
 }
 
 /* services section */
-#services {
-  padding: 50px 0;
-  background-color: #ecf5ff;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-}
-#services .desc {
-  padding: 20px 0 30px;
-  width: 80%;
-  margin: 0 auto;
-  font-size: 20px;
-  color: #6c757d;
-}
-#services .media {
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+#services .box {
   position: relative;
   background-color: #fff;
   padding: 10px;
@@ -131,10 +152,24 @@
   overflow: hidden;
   border-radius: 10px;
 }
-#services .media .media-body {
+#services .box a {
+  color: #000;
+  text-decoration: none;
+}
+#services .box:hover {
+  transform: translateY(-7px);
+}
+#services .box:hover a {
+  color: #017bff;
+  cursor: pointer;
+}
+#services .box:hover .svg-inline--fa {
+  color: #017bff;
+}
+#services .box .media-body {
   padding: 10px 50px;
 }
-#services .media span {
+#services .box span {
   position: absolute;
   top: calc(50% - 24px);
   left: -5px;
@@ -142,7 +177,6 @@
 
 /* choose us section */
 #choose-us {
-  padding: 50px 0;
   color: #fff;
   background-color: #00366f;
 }
@@ -151,15 +185,13 @@
   margin-bottom: 20px;
 }
 #choose-us .desc {
-  margin: 0 auto 40px;
-  width: 80%;
-  font-size: 18px;
-  color: #cecece;
-  line-height: 1.6em;
+  color: #dddede;
 }
 #choose-us .card {
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
   background-color: #00458f;
+}
+#choose-us .card:hover {
+  background: #003b7a;
 }
 #choose-us .card .card-body .svg-inline--fa {
   color: #bfddfe;
@@ -171,7 +203,6 @@
 #choose-us .card .card-body .card-link {
   color: #fff;
   font-weight: 600;
-  transition: all 0.4s ease-in-out;
   border-bottom: 2px solid #00458f;
 }
 #choose-us .card .card-body .card-link:hover {
@@ -183,9 +214,6 @@
 }
 
 /* start portfolio section*/
-#portfolio {
-  padding: 50px 0;
-}
 #portfolio h2 {
   margin-bottom: 30px;
 }
@@ -194,7 +222,6 @@
   padding: 5px 30px;
   margin-right: 20px;
   background-color: #ecf5ff;
-  transition: all 0.5s ease-in-out;
   margin-bottom: 10px;
   text-transform: uppercase;
 }
@@ -209,34 +236,23 @@
   color: #fff;
 }
 #portfolio .portfolio {
-  -webkit-column-count: 3;
-  -moz-column-count: 3;
+  -prefixes-column-count: 3;
   column-count: 3;
-  -webkit-column-width: calc(100% / 3);
-  -moz-column-width: calc(100% / 3);
+  -prefixes-column-width: calc(100% / 3);
   column-width: calc(100% / 3);
 }
 #portfolio .portfolio .portfolio-item .portfolio-wrapper {
   position: relative;
-  transition: 0.4s ease-in-out;
 }
 #portfolio .portfolio .portfolio-item .portfolio-wrapper img {
   width: 100%;
-  transition: all 0.4s ease-in-out;
 }
 #portfolio .portfolio .portfolio-item .portfolio-wrapper .portfolio-info {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #fff;
   opacity: 0;
-  transition: all 0.4s ease-in-out;
 }
 #portfolio .portfolio .portfolio-item .portfolio-wrapper .portfolio-info h4 a {
   color: #fff;
@@ -262,16 +278,8 @@
   opacity: 1;
 }
 
-#testimonials {
-  padding: 50px;
-  background-color: #ecf5ff;
-  box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
-}
 #testimonials h2 {
-  color: #283d50;
   margin-bottom: 50px;
-  text-transform: capitalize;
-  letter-spacing: 2px;
 }
 #testimonials .carousel-indicators li {
   width: 15px;
@@ -289,9 +297,80 @@
   width: 120px;
 }
 #testimonials .carousel-inner .media .media-body p {
+  font-family: "Merienda", cursive;
   font-style: italic;
-  line-height: 1.5em;
+  line-height: 1.6em;
+  font-size: 18px;
   margin-bottom: 70px;
+}
+
+#team .member-item {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+#team .member-item .member-info {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  opacity: 0;
+}
+#team .member-item .member-info p {
+  color: #ecf5ff;
+  font-style: italic;
+}
+#team .member-item .member-info .links a {
+  color: #fff;
+  margin-right: 4px;
+}
+#team .member-item .member-info .links a:last-child {
+  margin-right: 0;
+}
+#team .member-item:hover img {
+  opacity: 0.4;
+}
+#team .member-item:hover .member-info {
+  opacity: 1;
+  background-color: rgba(0, 54, 111, 0.8);
+}
+
+/* start clients section */
+#clients .client-logo {
+  padding: 64px;
+  background-color: #fff;
+  height: 160px;
+  margin: 1px;
+}
+#clients .client-logo:hover img {
+  transform: scale(1.2);
+}
+
+/* end clients section */
+#contact-us h2 {
+  margin-bottom: 30px;
+}
+
+#footer {
+  background-color: #004a99;
+  color: #fff;
+}
+#footer h4,
+#footer h5 {
+  text-transform: uppercase;
+}
+#footer ul li {
+  margin-bottom: 5px;
+}
+#footer ul li a {
+  text-decoration: none;
+  color: #ecf5ff;
+}
+
+.copyright {
+  background-color: #00366f;
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */
