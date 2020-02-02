@@ -1,12 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Courgette|Merienda&display=swap");
-body {
-  font-family: merienda, sans-serif;
-}
-
 #clients .client-logo img, #team .member-item .member-info, #team .member-item img, #portfolio .portfolio .portfolio-item .portfolio-wrapper .portfolio-info, #portfolio .portfolio .portfolio-item .portfolio-wrapper img, #portfolio ul li, #choose-us .card .card-body .card-link, #services .box, #about-us .media span, #intro a {
-  -prefixes-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  -prefixes-transition: all 0.4s ease-in-out !important;
+  transition: all 0.4s ease-in-out !important;
 }
 
 #team .member-item .member-info, #portfolio .portfolio .portfolio-item .portfolio-wrapper .portfolio-info {
@@ -31,7 +26,7 @@ body {
   font-weight: bold;
 }
 
-#clients p, #team .desc, #choose-us .desc, #services .desc, #about-us .about {
+#clients p, #team .desc, #testimonials .item .media .media-body p, #choose-us .desc, #services .desc, #about-us .about {
   font-family: "Merienda", cursive;
   font-style: italic;
   margin: 0 auto 40px;
@@ -55,6 +50,27 @@ body {
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
+@media (max-width: 767.98px) {
+  #portfolio .portfolio {
+    -prefixes-column-count: 2 !important;
+    column-count: 2 !important;
+    -prefixes-column-width: 50% !important;
+    column-width: 50% !important;
+  }
+}
+@media (min-width: 768px) {
+  #portfolio .portfolio {
+    -prefixes-column-count: 3 !important;
+    column-count: 3 !important;
+    -prefixes-column-width: 33.3333% !important;
+    column-width: 33.3333% !important;
+  }
+}
+body {
+  font-family: merienda, sans-serif;
+  position: relative;
+}
+
 #header .navbar .navbar-brand img {
   width: 150px;
 }
@@ -67,7 +83,7 @@ body {
 #header .navbar .nav-link:hover {
   color: #017bff;
 }
-#header .navbar .active {
+#header .navbar .active a {
   color: #017bff;
 }
 
@@ -235,12 +251,6 @@ body {
   cursor: pointer;
   color: #fff;
 }
-#portfolio .portfolio {
-  -prefixes-column-count: 3;
-  column-count: 3;
-  -prefixes-column-width: calc(100% / 3);
-  column-width: calc(100% / 3);
-}
 #portfolio .portfolio .portfolio-item .portfolio-wrapper {
   position: relative;
 }
@@ -281,27 +291,12 @@ body {
 #testimonials h2 {
   margin-bottom: 50px;
 }
-#testimonials .carousel-indicators li {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: #6c757d;
-}
-#testimonials .carousel-indicators li:hover {
-  background-color: #017bff;
-}
-#testimonials .carousel-indicators .active {
-  background-color: #017bff !important;
-}
-#testimonials .carousel-inner .media img {
+#testimonials .item .media img {
   width: 120px;
 }
-#testimonials .carousel-inner .media .media-body p {
-  font-family: "Merienda", cursive;
-  font-style: italic;
-  line-height: 1.6em;
-  font-size: 18px;
-  margin-bottom: 70px;
+#testimonials .item .media .media-body p {
+  margin: 0;
+  width: 100%;
 }
 
 #team .member-item {
@@ -338,9 +333,9 @@ body {
 
 /* start clients section */
 #clients .client-logo {
-  padding: 64px;
+  padding: 60px;
   background-color: #fff;
-  height: 160px;
+  height: 180px;
   margin: 1px;
 }
 #clients .client-logo:hover img {
@@ -371,6 +366,23 @@ body {
 .copyright {
   background-color: #00366f;
   color: #fff;
+}
+.copyright a {
+  text-decoration: none;
+}
+
+#scroll-top {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  display: none;
+  cursor: pointer;
+}
+#scroll-top .svg-inline--fa {
+  background-color: #017bff;
+  color: #fff;
+  padding: 4px;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */

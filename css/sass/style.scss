@@ -1,87 +1,21 @@
-$mainColor: #00366f;
-$secondColor: #017bff;
-$grayColor: #6c757d;
-$lightColor : #ecf5ff;
-$headingColor: #283d50;
-$white : #fff;
-$browserPrefixer : webkit moz o;
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap');
+// import variables
+@import "variables.scss";
+//mixin
+@import "mixin.scss";
+// classes 
+@import "class.scss";
+// import media query file 
+@import "media.scss";
+// import font from google fonts
 @import url('https://fonts.googleapis.com/css?family=Courgette|Merienda&display=swap');
+
 
 body {
     font-family: merienda, sans-serif;
+    position: relative;
 }
 
-// mix in to include
-@mixin prefixer($property, $value, $Prefixes : ()) {
-    @each $prefix in prefixes {
-        #{'-'+$prefix+'-'+$property}: $value;
-    }
-
-    #{$property} : $value;
-}
-
-// classes to extend
-%transiton {
-    @include prefixer(transition, all .4s ease-in-out, $browserPrefixer);
-}
-
-%absolute {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-%flexbox {
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-}
-
-%heading {
-    color: $headingColor;
-    font-size: 2em;
-    letter-spacing: 2px;
-    font-weight: bold;
-}
-
-%sectionDesc {
-    font-family: 'Merienda', cursive;
-    font-style: italic;
-    margin: 0 auto 40px;
-    width: 85%;
-    font-size: 1.2em;
-    color: $grayColor;
-    line-height: 1.6em;
-}
-
-%padding {
-    padding: 50px 0;
-}
-
-%customSection {
-    background-color: $lightColor;
-    box-shadow: inset 0 0 10px rgba($color: #000000, $alpha: 0.1);
-    overflow: hidden;
-}
-
-%customParagraph {
-  
-}
-
-%box-shadow {
-    box-shadow:
-        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-        0 12.5px 10px rgba(0, 0, 0, 0.06),
-        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-        0 100px 80px rgba(0, 0, 0, 0.12);
-}
-
+// start navbar
 #header {
     .navbar {
         .navbar-brand {
@@ -102,7 +36,9 @@ body {
         }
 
         .active {
-            color: $secondColor;
+            a{
+                color: $secondColor;
+            }
         }
     }
 }
@@ -344,9 +280,6 @@ body {
     }
 
     .portfolio {
-        @include prefixer(column-count, 3, $browserPrefixer);
-        @include prefixer(column-width, calc(100% / 3), $browserPrefixer);
-
         .portfolio-item {
             .portfolio-wrapper {
                 position: relative;
@@ -416,24 +349,7 @@ body {
         margin-bottom: 50px;
     }
 
-    .carousel-indicators {
-        li {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background-color: $grayColor;
-
-            &:hover {
-                background-color: $secondColor;
-            }
-        }
-
-        .active {
-            background-color: $secondColor !important;
-        }
-    }
-
-    .carousel-inner {
+    .item {
         .media {
             img {
                 width: 120px;
@@ -441,11 +357,9 @@ body {
 
             .media-body {
                 p {
-                    font-family: 'Merienda', cursive;
-                    font-style: italic;
-                    line-height: 1.6em;
-                    font-size: 18px;
-                    margin-bottom: 70px;
+                   @extend %sectionDesc;
+                   margin: 0;
+                   width: 100%;
                 }
             }
         }
@@ -529,9 +443,9 @@ body {
 
     .client-logo {
         @extend %flexbox;
-        padding: 64px;
+        padding: 60px;
         background-color: $white;
-        height: 160px;
+        height: 180px;
         margin: 1px;
 
         img {
@@ -585,4 +499,22 @@ body {
 .copyright {
     background-color: $mainColor;
     color: $white;
+    a{
+        text-decoration: none;
+    }
+}
+
+// scroll to top 
+#scroll-top{
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    display: none;
+    cursor: pointer;
+    .svg-inline--fa{
+        background-color: $secondColor;
+        color: $white;
+        padding: 4px;
+        border-radius: 5px;
+    }
 }

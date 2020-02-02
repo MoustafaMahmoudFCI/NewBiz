@@ -1,0 +1,16 @@
+@media (max-width : 767.98px){
+    #portfolio {
+        .portfolio {
+            @include prefixer(column-count, 2, $browserPrefixer);
+            @include prefixer(column-width, 50%, $browserPrefixer);
+        }
+    }
+}
+@media (min-width : 768px){
+    #portfolio {
+        .portfolio {
+            @include prefixer(column-count, 3, $browserPrefixer);
+            @include prefixer(column-width, 33.3333%, $browserPrefixer);
+        }
+    }
+}

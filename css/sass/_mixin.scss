@@ -1,0 +1,7 @@
+// mix in to include
+@mixin prefixer($property, $value, $Prefixes : ()) {
+    @each $prefix in prefixes {
+        #{'-'+$prefix+'-'+$property}: $value !important;
+    }
+    #{$property} : $value !important;
+}
