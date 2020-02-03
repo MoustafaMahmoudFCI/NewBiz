@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Courgette|Merienda&display=swap");
 #clients .client-logo img, #team .member-item .member-info, #team .member-item img, #portfolio .portfolio .portfolio-item .portfolio-wrapper .portfolio-info, #portfolio .portfolio .portfolio-item .portfolio-wrapper img, #portfolio ul li, #choose-us .card .card-body .card-link, #services .box, #about-us .media span, #intro a {
-  -prefixes-transition: all 0.4s ease-in-out !important;
-  transition: all 0.4s ease-in-out !important;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 #team .member-item .member-info, #portfolio .portfolio .portfolio-item .portfolio-wrapper .portfolio-info {
@@ -42,28 +45,48 @@
 
 #clients, #testimonials, #services {
   background-color: #ecf5ff;
+  -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
 #choose-us .card, #services .box {
+  -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+  -o-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+  -ms-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 @media (max-width: 767.98px) {
   #portfolio .portfolio {
-    -prefixes-column-count: 2 !important;
-    column-count: 2 !important;
-    -prefixes-column-width: 50% !important;
-    column-width: 50% !important;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    -o-column-count: 2;
+    -ms-column-count: 2;
+    column-count: 2;
+    -webkit-column-width: 50%;
+    -moz-column-width: 50%;
+    -o-column-width: 50%;
+    -ms-column-width: 50%;
+    column-width: 50%;
   }
 }
 @media (min-width: 768px) {
   #portfolio .portfolio {
-    -prefixes-column-count: 3 !important;
-    column-count: 3 !important;
-    -prefixes-column-width: 33.3333% !important;
-    column-width: 33.3333% !important;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    -o-column-count: 3;
+    -ms-column-count: 3;
+    column-count: 3;
+    -webkit-column-width: 33.3333%;
+    -moz-column-width: 33.3333%;
+    -o-column-width: 33.3333%;
+    -ms-column-width: 33.3333%;
+    column-width: 33.3333%;
   }
 }
 body {
